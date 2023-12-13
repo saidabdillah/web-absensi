@@ -1,0 +1,40 @@
+section.container-fluid>main>.logo>img {
+  text-align: center;
+  width: 120px;
+  height: 120px;
+}
+
+#map {
+  height: 500px;
+}
+
+section.container {
+  margin-top: 6em;
+}
+
+main.container>section.row {
+  height: 100vh;
+}
+
+a.text-decoration-none.fw-medium {
+  color: #000;
+}
+
+a.text-decoration-none.fw-medium:hover {
+  display: inline-block;
+  color: rgba(33, 37, 41, 0.5);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+@media (min-width:750px) {
+  #side-bar {
+    min-height: 95vh;
+  }
+}
