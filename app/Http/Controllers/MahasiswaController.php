@@ -16,12 +16,15 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::where('nim', Auth::user()->nim)->first();
         return view('student.dashboard', [
             'mahasiswa' => $mahasiswa,
+            'title' => 'Beranda',
         ]);
     }
 
     public function create()
     {
-        return view('admin.tambah-mahasiswa');
+        return view('admin.tambah-mahasiswa', [
+            'title' => 'Dashboard | Tambah Mahasiswa',
+        ]);
     }
 
     public function rules()
@@ -80,6 +83,7 @@ class MahasiswaController extends Controller
     {
         return view('student.profile', [
             'mahasiswa' => Mahasiswa::where('nim', Auth::user()->nim)->first(),
+            'title' => 'Profile',
         ]);
     }
 
@@ -87,6 +91,7 @@ class MahasiswaController extends Controller
     {
         return view('admin.edit-mahasiswa', [
             'mahasiswa' => $mahasiswa,
+            'title' => 'Dashboard | Edit Mahasiswa',
         ]);
     }
 

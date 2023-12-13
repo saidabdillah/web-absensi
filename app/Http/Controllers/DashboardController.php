@@ -13,6 +13,7 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard', [
             'mahasiswa' => Mahasiswa::count(),
+            'title' => 'Dashboard',
         ]);
     }
 
@@ -22,6 +23,7 @@ class DashboardController extends Controller
             'admin.mahasiswa',
             [
                 'mahasiswa' => Mahasiswa::cari()->paginate(10)->withQueryString(),
+                'title' => 'Dashboard | Mahasiswa',
             ]
         );
     }
@@ -29,7 +31,8 @@ class DashboardController extends Controller
     public function lihat(Mahasiswa $mahasiswa)
     {
         return view('admin.lihat-mahasiswa', [
-            'mahasiswa' => $mahasiswa
+            'mahasiswa' => $mahasiswa,
+            'title' => 'Dashboard | Lihat Mahasiswa',
         ]);
     }
 

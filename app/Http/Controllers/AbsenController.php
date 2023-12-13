@@ -14,6 +14,7 @@ class AbsenController extends Controller
     {
         return view('admin.absen', [
             'absen' => Absen::with('matakuliah')->cari()->paginate(10)->withQueryString(),
+            'title' => 'Dashboard | Absen'
         ]);
     }
 
@@ -23,6 +24,7 @@ class AbsenController extends Controller
         return view('student.absen', [
             'matakuliah' => Matakuliah::all(),
             'absen' => Absen::with('matakuliah')->where('nim', $mahasiswa->nim)->latest()->get(),
+            'title' => 'Absen',
         ]);
     }
 
@@ -68,6 +70,7 @@ class AbsenController extends Controller
         return view('admin.lihat-absen', [
             'mahasiswa' => $mahasiswa,
             'absen' => $absen->load('matakuliah'),
+            'title' => 'Dashboard | Lihat Absen',
         ]);
     }
 
