@@ -98,13 +98,15 @@ class MahasiswaController extends Controller
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
         $rules = [
-            'nama_lengkap' => 'required',
             'jurusan' => 'required',
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
             'angkatan' => 'numeric|required',
         ];
 
+        if ($request->nama_lengkap != $mahasiswa->nama_lengkap) {
+            $rules['nama_lengkap'] = 'required|unique:App\Models\Mahasiswa,nama_lengkap';
+        }
         if ($request->nim != $mahasiswa->nim) {
             $rules['nim'] = 'numeric|required|unique:App\Models\Mahasiswa,nim';
         }

@@ -75,7 +75,7 @@
                 <td>{{ $abs->matakuliah->nama_mata_kuliah }}</td>
                 <td class="text-capitalize">{{ $abs->kehadiran }}</td>
                 <td>{{ $abs->keterangan }}</td>
-                <td>{{ $abs->created_at }}</td>
+                <td>{{ $abs->waktu }}</td>
               </tr>
               @endforeach
             </tbody>

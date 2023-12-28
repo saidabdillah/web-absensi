@@ -12,8 +12,7 @@
 
 <section class="container-fluid">
   <div class="row">
-    @if ($absen->count() > 10)
-    <div class="col-12 col-sm-8 col-lg-6 mb-3">
+    <div class="col-12 col-sm-4 mb-3">
       <form action="/absen" method="get">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Cari Mahasiswa" aria-label="Cari Mahasiswa"
@@ -22,7 +21,6 @@
         </div>
       </form>
     </div>
-    @endif
     @if (session()->has('success'))
     <div class="alert alert-success alert-dismissible text-center fade show" role="alert">
       {{ session('success') }}

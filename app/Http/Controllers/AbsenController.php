@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Absen;
 use App\Models\Mahasiswa;
 use App\Models\Matakuliah;
+use Carbon\Carbon;
+use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,12 +54,15 @@ class AbsenController extends Controller
 
     public function store(Request $request)
     {
+        $waktu = Carbon::now(new DateTimeZone('Asia/Jakarta'));
+
         $mahasiswa = Mahasiswa::where('nim', Auth::user()->nim)->first();
 
         $absen = $request->validate($this->rules(), $this->messages());
         $absen['nama_mahasiswa'] = $mahasiswa->nama_lengkap;
         $absen['nim'] = $mahasiswa->nim;
         $absen['jurusan'] = $mahasiswa->jurusan;
+        $absen['waktu'] = $waktu;
 
         Absen::create($absen);
 

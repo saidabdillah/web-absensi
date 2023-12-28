@@ -12,9 +12,8 @@
 <section class="container-fluid">
   <a href="/mahasiswa/tambah-mahasiswa" class="btn btn-primary mb-3">Tambah Mahasiswa</a>
   <div class="row">
-    @if ($mahasiswa->count() > 10)
-    <div class="col-12 col-sm-8 col-lg-6 mb-3">
-      <form action="/absen" method="get">
+    <div class="col-12 col-sm-4 mb-3 mt-5">
+      <form action="/mahasiswa" method="get">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Cari Mahasiswa" aria-label="Cari Mahasiswa"
             aria-describedby="search" name="cari" value="{{ request('cari') }}">
@@ -22,7 +21,6 @@
         </div>
       </form>
     </div>
-    @endif
     @if (session()->has('sukses'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('sukses') }}
